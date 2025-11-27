@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+# Executa quando há push na branch main ou quando executado manualmente
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+# Configura permissões necessárias para o GitHub Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Permite apenas um deploy simultâneo
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  # Job de deploy
+  deploy:
+    name: Deploy Portfolio
+    runs-on: ubuntu-latest
+
+    # Configura o ambiente do GitHub Pages
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      # Checkout do código
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Setup do GitHub Pages
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      # Como é um site estático (HTML, CSS, JS), não precisamos de build
+      # Apenas fazemos upload dos arquivos
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Faz upload de toda a raiz do projeto
+          path: "."
+
+      # Deploy para o GitHub Pages
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
