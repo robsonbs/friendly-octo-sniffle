@@ -1,0 +1,624 @@
+/*
+=======================================================
+ BEM METHODOLOGY PAGE - Exemplo Prático de BEM CSS
+=======================================================
+Este arquivo demonstra na prática como implementar
+a metodologia BEM CSS com nomenclatura consistente:
+- Block: bem-page, bem-header, bem-hero, bem-nav, etc.
+- Element: bem-hero__title, bem-nav__link, etc.
+- Modifier: --active, --highlighted, etc.
+=======================================================
+*/
+
+/* BEM Methodology Page Styles */
+
+/*
+=======================================================
+ BEM-PAGE BLOCK
+=======================================================
+*/
+/* Page Layout */
+.bem-page {
+  min-height      : 100vh;
+  background-color: var(--color-gray-500);
+  color           : var(--color-gray-100);
+}
+
+/* Container */
+.bem-container {
+  max-width: 1200px;
+  margin   : 0 auto;
+  padding  : 0 20px;
+}
+
+/* Header */
+.bem-header {
+  background: linear-gradient(135deg, var(--color-gray-400) 0%, var(--color-gray-500) 100%);
+  padding   : 40px 0 80px;
+  position  : relative;
+}
+
+.bem-header::before {
+  content   : '';
+  position  : absolute;
+  top       : 0;
+  left      : 0;
+  right     : 0;
+  bottom    : 0;
+  background: url('../images/intro-bg-new.jpg') center/cover;
+  opacity   : 0.1;
+  z-index   : 0;
+}
+
+.bem-nav {
+  position     : relative;
+  z-index      : 2;
+  margin-bottom: 40px;
+}
+
+.bem-nav__link {
+  display         : inline-flex;
+  align-items     : center;
+  gap             : 8px;
+  color           : var(--color-gray-200);
+  text-decoration : none;
+  font-family     : var(--font-maven);
+  font-size       : 14px;
+  padding         : 8px 16px;
+  border-radius   : 20px;
+  background-color: rgba(41, 44, 52, 0.8);
+  transition      : all 0.3s ease;
+}
+
+.bem-nav__link:hover {
+  background-color: var(--color-gray-400);
+  color           : var(--color-gray-100);
+  transform       : translateY(-2px);
+}
+
+.bem-hero {
+  position  : relative;
+  z-index   : 2;
+  text-align: center;
+  max-width : 800px;
+  margin    : 0 auto;
+}
+
+.bem-hero__title {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : clamp(2.5rem, 5vw, 4rem);
+  color        : var(--color-gray-100);
+  margin-bottom: 16px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-hero__subtitle {
+  font-family  : var(--font-inconsolata);
+  font-weight  : 400;
+  font-size    : 20px;
+  color        : var(--color-blue);
+  margin-bottom: 24px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-hero__description {
+  font-family: var(--font-maven);
+  font-weight: 400;
+  font-size  : 18px;
+  color      : var(--color-gray-200);
+  line-height: var(--line-height-normal);
+  max-width  : 600px;
+  margin     : 0 auto;
+}
+
+/* Content */
+.bem-content {
+  padding: 60px 0;
+}
+
+/* Table of Contents */
+.bem-toc {
+  background-color: var(--color-gray-400);
+  border-radius   : 16px;
+  padding         : 32px;
+  margin-bottom   : 60px;
+  border          : 2px solid transparent;
+  transition      : border-color 0.3s ease;
+}
+
+.bem-toc:hover {
+  border-color: var(--color-blue);
+}
+
+.bem-toc__title {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 24px;
+  color        : var(--color-gray-100);
+  margin-bottom: 24px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-toc__list {
+  display              : grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap                  : 12px;
+  list-style           : none;
+}
+
+.bem-toc__link {
+  display        : block;
+  padding        : 12px 16px;
+  color          : var(--color-gray-200);
+  text-decoration: none;
+  font-family    : var(--font-maven);
+  font-size      : 14px;
+  border-radius  : 8px;
+  transition     : all 0.3s ease;
+  border         : 1px solid transparent;
+}
+
+.bem-toc__link:hover {
+  background-color: var(--color-blue);
+  color           : var(--color-white);
+  transform       : translateX(8px);
+}
+
+/* Sections */
+.bem-section {
+  margin-bottom    : 80px;
+  scroll-margin-top: 100px;
+}
+
+.bem-section__title {
+  font-family   : var(--font-asap);
+  font-weight   : 700;
+  font-size     : 32px;
+  color         : var(--color-gray-100);
+  margin-bottom : 32px;
+  line-height   : var(--line-height-tight);
+  padding-bottom: 16px;
+  border-bottom : 3px solid var(--color-blue);
+  display       : inline-block;
+}
+
+/* Text Content */
+.bem-text-content {
+  font-family: var(--font-maven);
+  font-size  : 16px;
+  line-height: var(--line-height-normal);
+  color      : var(--color-gray-200);
+}
+
+.bem-text-content h3 {
+  font-family: var(--font-asap);
+  font-weight: 700;
+  font-size  : 20px;
+  color      : var(--color-gray-100);
+  margin     : 32px 0 16px;
+  line-height: var(--line-height-tight);
+}
+
+.bem-text-content p {
+  margin-bottom: 16px;
+}
+
+.bem-text-content ul,
+.bem-text-content ol {
+  margin      : 16px 0;
+  padding-left: 24px;
+}
+
+.bem-text-content li {
+  margin-bottom: 8px;
+}
+
+.bem-text-content strong {
+  color      : var(--color-gray-100);
+  font-weight: 500;
+}
+
+/* Highlight Box */
+.bem-highlight {
+  background-color: var(--color-gray-400);
+  border-radius   : 16px;
+  padding         : 32px;
+  margin          : 32px 0;
+  border-left     : 4px solid var(--color-blue);
+}
+
+.bem-highlight__title {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 20px;
+  color        : var(--color-blue);
+  margin-bottom: 16px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-highlight__list {
+  list-style: none;
+  padding   : 0;
+}
+
+.bem-highlight__list li {
+  position     : relative;
+  padding-left : 24px;
+  margin-bottom: 12px;
+}
+
+.bem-highlight__list li::before {
+  content    : '→';
+  position   : absolute;
+  left       : 0;
+  color      : var(--color-blue);
+  font-weight: bold;
+}
+
+/* Code Blocks */
+.bem-code-block {
+  background-color: var(--color-gray-600);
+  border-radius   : 12px;
+  padding         : 24px;
+  margin          : 24px 0;
+  overflow-x      : auto;
+  border          : 1px solid var(--color-gray-400);
+}
+
+.bem-code {
+  font-family: var(--font-inconsolata);
+  font-size  : 14px;
+  line-height: 1.6;
+  color      : var(--color-gray-100);
+  white-space: pre;
+}
+
+/* Code Examples */
+.bem-code-example {
+  margin: 32px 0;
+}
+
+.bem-code-example h4 {
+  font-family: var(--font-asap);
+  font-weight: 700;
+  font-size  : 16px;
+  color      : var(--color-gray-100);
+  margin     : 24px 0 12px;
+  line-height: var(--line-height-tight);
+}
+
+/* Syntax Table */
+.bem-syntax-table {
+  background-color: var(--color-gray-400);
+  border-radius   : 12px;
+  padding         : 24px;
+  margin          : 24px 0;
+}
+
+.bem-syntax-row {
+  display              : grid;
+  grid-template-columns: 60px 120px 1fr;
+  gap                  : 16px;
+  align-items          : center;
+  padding              : 12px 0;
+  border-bottom        : 1px solid var(--color-gray-300);
+}
+
+.bem-syntax-row:last-child {
+  border-bottom: none;
+}
+
+.bem-syntax-symbol {
+  font-family     : var(--font-inconsolata);
+  font-weight     : 700;
+  font-size       : 18px;
+  color           : var(--color-blue);
+  text-align      : center;
+  background-color: var(--color-gray-500);
+  padding         : 8px;
+  border-radius   : 6px;
+}
+
+.bem-syntax-name {
+  font-family: var(--font-inconsolata);
+  font-weight: 700;
+  font-size  : 14px;
+  color      : var(--color-gray-100);
+}
+
+.bem-syntax-description {
+  font-family: var(--font-maven);
+  font-size  : 14px;
+  color      : var(--color-gray-200);
+}
+
+/* Examples */
+.bem-example {
+  margin: 40px 0;
+}
+
+.bem-example h3 {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 20px;
+  color        : var(--color-gray-100);
+  margin-bottom: 16px;
+  line-height  : var(--line-height-tight);
+}
+
+/* Advantages Grid */
+.bem-advantages {
+  display              : grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap                  : 24px;
+  margin               : 32px 0;
+}
+
+.bem-advantage {
+  background-color: var(--color-gray-400);
+  border-radius   : 16px;
+  padding         : 24px;
+  transition      : transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bem-advantage:hover {
+  transform : translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.bem-advantage__title {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 18px;
+  color        : var(--color-gray-100);
+  margin-bottom: 12px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-advantage__text {
+  font-family: var(--font-maven);
+  font-size  : 14px;
+  color      : var(--color-gray-200);
+  line-height: var(--line-height-normal);
+  margin     : 0;
+}
+
+/* Practices */
+.bem-practice {
+  background-color: var(--color-gray-400);
+  border-radius   : 16px;
+  padding         : 32px;
+  margin          : 32px 0;
+}
+
+.bem-practice h3 {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 20px;
+  margin-bottom: 16px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-practice:first-of-type h3 {
+  color: var(--color-green);
+}
+
+.bem-practice:last-of-type h3 {
+  color: var(--color-red);
+}
+
+.bem-practice ul {
+  list-style: none;
+  padding   : 0;
+}
+
+.bem-practice li {
+  position     : relative;
+  padding-left : 24px;
+  margin-bottom: 12px;
+  font-family  : var(--font-maven);
+  font-size    : 14px;
+  line-height  : var(--line-height-normal);
+}
+
+.bem-practice:first-of-type li::before {
+  content    : '✓';
+  position   : absolute;
+  left       : 0;
+  color      : var(--color-green);
+  font-weight: bold;
+}
+
+.bem-practice:last-of-type li::before {
+  content    : '✗';
+  position   : absolute;
+  left       : 0;
+  color      : var(--color-red);
+  font-weight: bold;
+}
+
+/* Tools */
+.bem-tools {
+  display              : grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap                  : 24px;
+  margin               : 32px 0;
+}
+
+.bem-tool {
+  background-color: var(--color-gray-400);
+  border-radius   : 16px;
+  padding         : 24px;
+}
+
+.bem-tool__title {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 18px;
+  color        : var(--color-blue);
+  margin-bottom: 16px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-tool__list {
+  list-style: none;
+  padding   : 0;
+}
+
+.bem-tool__list li {
+  margin-bottom: 12px;
+  font-family  : var(--font-maven);
+  font-size    : 14px;
+  line-height  : var(--line-height-normal);
+}
+
+.bem-tool__list strong {
+  color      : var(--color-gray-100);
+  font-weight: 500;
+}
+
+/* Migration */
+.bem-migration {
+  background-color: var(--color-gray-400);
+  border-radius   : 16px;
+  padding         : 32px;
+  margin          : 32px 0;
+  border-left     : 4px solid var(--color-yellow);
+}
+
+.bem-migration h3 {
+  font-family  : var(--font-asap);
+  font-weight  : 700;
+  font-size    : 20px;
+  color        : var(--color-yellow);
+  margin-bottom: 16px;
+  line-height  : var(--line-height-tight);
+}
+
+.bem-migration ol {
+  padding-left: 20px;
+}
+
+.bem-migration li {
+  margin-bottom: 8px;
+  font-family  : var(--font-maven);
+  font-size    : 14px;
+  line-height  : var(--line-height-normal);
+}
+
+/* Footer */
+.bem-footer {
+  background-color: var(--color-gray-400);
+  padding         : 40px 0;
+  border-top      : 1px solid var(--color-gray-300);
+}
+
+.bem-footer__text {
+  font-family: var(--font-maven);
+  font-size  : 14px;
+  color      : var(--color-gray-200);
+  text-align : center;
+  margin     : 0;
+}
+
+.bem-footer__link {
+  color          : var(--color-blue);
+  text-decoration: none;
+  font-weight    : 500;
+}
+
+.bem-footer__link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bem-container {
+    padding: 0 16px;
+  }
+
+  .bem-header {
+    padding: 20px 0 40px;
+  }
+
+  .bem-hero__title {
+    font-size: 2.5rem;
+  }
+
+  .bem-content {
+    padding: 40px 0;
+  }
+
+  .bem-section {
+    margin-bottom: 60px;
+  }
+
+  .bem-section__title {
+    font-size: 24px;
+  }
+
+  .bem-toc {
+    padding: 20px;
+  }
+
+  .bem-toc__list {
+    grid-template-columns: 1fr;
+  }
+
+  .bem-syntax-row {
+    grid-template-columns: 1fr;
+    gap                  : 8px;
+    text-align           : left;
+  }
+
+  .bem-syntax-symbol {
+    text-align: left;
+    width     : fit-content;
+  }
+
+  .bem-advantages {
+    grid-template-columns: 1fr;
+  }
+
+  .bem-tools {
+    grid-template-columns: 1fr;
+  }
+
+  .bem-code-block {
+    padding  : 16px;
+    font-size: 12px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus Styles */
+.bem-nav__link:focus,
+.bem-toc__link:focus,
+.bem-footer__link:focus {
+  outline       : 2px solid var(--color-blue);
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+
+  .bem-header,
+  .bem-nav,
+  .bem-footer {
+    display: none;
+  }
+
+  .bem-page {
+    background: white;
+    color     : black;
+  }
+
+  .bem-section {
+    break-inside: avoid;
+  }
+}

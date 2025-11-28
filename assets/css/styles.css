@@ -1,3 +1,16 @@
+/*
+=======================================================
+ BEM CSS METHODOLOGY IMPLEMENTATION
+=======================================================
+Este arquivo segue rigorosamente a metodologia BEM:
+- BLOCK: Componente independente (intro, projects, contact, etc.)
+- ELEMENT: Parte do bloco (intro__title, project-card__image, etc.)
+- MODIFIER: Variação do bloco/elemento (intro__tag--css, project-card--special, etc.)
+
+Estrutura de nomenclatura: block__element--modifier
+=======================================================
+*/
+
 /* CSS Reset */
 * {
   margin    : 0;
@@ -61,6 +74,16 @@ body {
   justify-content: flex-end;
   min-height     : 100vh;
 }
+
+/*
+=======================================================
+ INTRO BLOCK - BEM Implementation
+=======================================================
+Block: .intro - Seção de introdução do portfolio
+Elements: __background, __content, __header, etc.
+Modifiers: Nenhum modificador específico para este bloco
+=======================================================
+*/
 
 /* Intro Section */
 .intro {
@@ -146,7 +169,7 @@ body {
 }
 
 /* Text Styles */
-.intro__text {
+.intro__text-content {
   display       : flex;
   flex-direction: column;
   align-items   : center;
@@ -155,7 +178,7 @@ body {
   text-align    : center;
 }
 
-.intro__title {
+.intro__title-section {
   display       : flex;
   flex-direction: column;
   align-items   : center;
@@ -190,14 +213,14 @@ body {
   line-height: var(--line-height-normal);
 }
 
-/* Tags Styles */
-.intro__tags {
+/* Intro Tags - Following BEM methodology */
+.intro__tags-container {
   display    : flex;
   gap        : 12px;
   align-items: flex-start;
 }
 
-.tag {
+.intro__tag {
   display        : flex;
   align-items    : center;
   justify-content: center;
@@ -214,35 +237,41 @@ body {
   transition     : transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.tag:hover {
+.intro__tag:hover {
   transform : translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.tag--small {
-  padding  : 4px 12px;
-  font-size: var(--tag-sm);
-}
-
-.tag--github {
+/* Intro Tag Modifiers */
+.intro__tag--github {
   background-color: var(--color-green);
 }
 
-.tag--php {
+.intro__tag--php {
   background-color: var(--color-purple);
 }
 
-.tag--css {
+.intro__tag--css {
   background-color: var(--color-blue);
 }
 
-.tag--html {
+.intro__tag--html {
   background-color: var(--color-red);
 }
 
-.tag--javascript {
+.intro__tag--javascript {
   background-color: var(--color-yellow);
 }
+
+/*
+=======================================================
+ PROJECTS BLOCK - BEM Implementation
+=======================================================
+Block: .projects - Seção de projetos
+Elements: __header, __grid, __title, __subtitle
+Modifiers: Nenhum modificador específico para este bloco
+=======================================================
+*/
 
 /* Projects Section */
 .projects {
@@ -288,7 +317,18 @@ body {
   height   : 588px;
 }
 
-/* Project Card */
+/*
+=======================================================
+ PROJECT-CARD BLOCK - BEM Implementation
+=======================================================
+Block: .project-card - Card individual de projeto
+Elements: __image, __content, __title, __text, __tags, __tag
+Modifiers: --special (para o card do BEM)
+Tag Modifiers: --css, --html, --javascript, --purple, etc.
+=======================================================
+*/
+
+/* Project Card - Following BEM methodology */
 .project-card {
   background-color: var(--color-gray-400);
   border-radius   : 20px;
@@ -307,6 +347,7 @@ body {
   color           : inherit;
 }
 
+/* Project Card - Base states */
 a,
 a:visited {
   text-decoration: none;
@@ -325,6 +366,7 @@ a:hover .project-card,
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+/* Project Card - Elements */
 .project-card__image {
   width        : 224px;
   height       : 148px;
@@ -386,6 +428,61 @@ a:hover .project-card,
   -webkit-box-orient: vertical;
 }
 
+.project-card__tags {
+  display    : flex;
+  gap        : 8px;
+  align-items: center;
+  width      : 100%;
+}
+
+/* Project Card Tag - Element within Project Card block */
+.project-card__tag {
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  padding        : 4px 12px;
+  border-radius  : 20px;
+  font-family    : var(--font-inconsolata);
+  font-weight    : 700;
+  font-size      : var(--tag-sm);
+  color          : var(--color-gray-500);
+  line-height    : var(--line-height-tight);
+  text-align     : center;
+  border         : none;
+  cursor         : pointer;
+  transition     : transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-card__tag:hover {
+  transform : translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Project Card Tag Modifiers */
+.project-card__tag--css {
+  background-color: var(--color-blue);
+}
+
+.project-card__tag--html {
+  background-color: var(--color-red);
+}
+
+.project-card__tag--javascript {
+  background-color: var(--color-yellow);
+}
+
+.project-card__tag--github {
+  background-color: var(--color-green);
+}
+
+.project-card__tag--php {
+  background-color: var(--color-purple);
+}
+
+.project-card__tag--purple {
+  background-color: var(--color-purple);
+}
+
 /* Ensure text colors are preserved in linked cards */
 a .project-card__title {
   color: var(--color-gray-100);
@@ -395,12 +492,82 @@ a .project-card__text {
   color: var(--color-gray-200);
 }
 
-.project-card__tags {
-  display    : flex;
-  gap        : 8px;
-  align-items: center;
-  width      : 100%;
+/* Project Card - Modifier for Special BEM Card */
+.project-card--special {
+  border    : 2px solid var(--color-purple);
+  background: linear-gradient(135deg, var(--color-gray-400) 0%, #2d2041 100%);
 }
+
+.project-card--special:hover {
+  border-color: var(--color-blue);
+  box-shadow  : 0 8px 24px rgba(187, 114, 233, 0.3);
+}
+
+.project-card__bem-icon {
+  width          : 100%;
+  height         : 100%;
+  background     : linear-gradient(135deg, var(--color-purple) 0%, var(--color-blue) 100%);
+  border-radius  : 12px;
+  display        : flex;
+  flex-direction : column;
+  align-items    : center;
+  justify-content: center;
+  position       : relative;
+  overflow       : hidden;
+}
+
+.project-card__bem-icon::before {
+  content : '';
+  position: absolute;
+  top     : 0;
+  left    : 0;
+  right   : 0;
+  bottom  : 0;
+  background: linear-gradient(45deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.1) 50%,
+      transparent 70%);
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+
+  0%,
+  100% {
+    transform: translateX(-100%);
+  }
+
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.project-card__bem-text {
+  font-family: var(--font-asap);
+  font-weight: 700;
+  font-size  : 32px;
+  color      : var(--color-white);
+  line-height: 1;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.project-card__bem-subtitle {
+  font-family   : var(--font-inconsolata);
+  font-weight   : 700;
+  font-size     : 12px;
+  color         : var(--color-gray-100);
+  letter-spacing: 2px;
+  opacity       : 0.9;
+}
+
+/*
+=======================================================
+ RESPONSIVE DESIGN - BEM Implementation
+=======================================================
+Todos os breakpoints mantêm a estrutura BEM
+Modificações são aplicadas usando a mesma nomenclatura
+=======================================================
+*/
 
 /* Responsive Design */
 @media (max-width: 1366px) {
@@ -505,6 +672,16 @@ a .project-card__text {
   }
 }
 
+/*
+=======================================================
+ CONTACT BLOCK - BEM Implementation
+=======================================================
+Block: .contact - Seção de contato
+Elements: __background, __content, __header, __title, etc.
+Modifiers: Nenhum modificador específico para este bloco
+=======================================================
+*/
+
 /* Contact Section */
 .contact {
   position       : relative;
@@ -585,6 +762,17 @@ a .project-card__text {
   align-items   : flex-start;
 }
 
+/*
+=======================================================
+ SOCIAL-BUTTON BLOCK - BEM Implementation
+=======================================================
+Block: .social-button - Botão de rede social
+Elements: __icon, __text, __arrow
+Modifiers: Nenhum modificador específico para este bloco
+=======================================================
+*/
+
+/* Social Button - Following BEM methodology */
 .social-button {
   display         : flex;
   gap             : 12px;
@@ -608,6 +796,7 @@ a .project-card__text {
   box-shadow: 0 6px 20px rgba(57, 150, 219, 0.2);
 }
 
+/* Social Button Elements */
 .social-button__icon {
   width      : 28px;
   height     : 28px;

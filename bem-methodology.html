@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metodologia BEM CSS - Guia Completo</title>
+    <link rel="stylesheet" href="assets/css/styles.css" />
+    <link rel="stylesheet" href="assets/css/bem-page.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Asap:wght@400;700&family=Inconsolata:wght@400;700&family=Maven+Pro:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <main class="bem-page">
+      <!-- Header -->
+      <header class="bem-header">
+        <div class="bem-container">
+          <nav class="bem-nav">
+            <a href="index.html" class="bem-nav__link">← Voltar ao Portfolio</a>
+          </nav>
+          <div class="bem-hero">
+            <h1 class="bem-hero__title">Metodologia BEM CSS</h1>
+            <p class="bem-hero__subtitle">
+              Block Element Modifier - Guia Completo 2024
+            </p>
+            <p class="bem-hero__description">
+              Um sistema de nomenclatura CSS que torna seu código mais legível,
+              reutilizável e escalável para projetos de qualquer tamanho.
+            </p>
+          </div>
+        </div>
+      </header>
+
+      <!-- Conteúdo Principal -->
+      <section class="bem-content">
+        <div class="bem-container">
+          <!-- Índice -->
+          <nav class="bem-toc">
+            <h2 class="bem-toc__title">Índice</h2>
+            <ul class="bem-toc__list">
+              <li><a href="#intro" class="bem-toc__link">O que é BEM?</a></li>
+              <li>
+                <a href="#syntax" class="bem-toc__link">Sintaxe e Estrutura</a>
+              </li>
+              <li>
+                <a href="#blocks" class="bem-toc__link">Blocos (Blocks)</a>
+              </li>
+              <li>
+                <a href="#elements" class="bem-toc__link"
+                  >Elementos (Elements)</a
+                >
+              </li>
+              <li>
+                <a href="#modifiers" class="bem-toc__link"
+                  >Modificadores (Modifiers)</a
+                >
+              </li>
+              <li>
+                <a href="#examples" class="bem-toc__link">Exemplos Práticos</a>
+              </li>
+              <li><a href="#advantages" class="bem-toc__link">Vantagens</a></li>
+              <li>
+                <a href="#best-practices" class="bem-toc__link"
+                  >Melhores Práticas</a
+                >
+              </li>
+              <li><a href="#tools" class="bem-toc__link">Ferramentas</a></li>
+            </ul>
+          </nav>
+
+          <!-- Seção 1: Introdução -->
+          <section id="intro" class="bem-section">
+            <h2 class="bem-section__title">O que é BEM?</h2>
+            <div class="bem-text-content">
+              <p>
+                <strong>BEM (Block Element Modifier)</strong> é uma metodologia
+                de nomenclatura CSS criada pela equipe do Yandex que oferece uma
+                abordagem sistemática para organizar e estruturar código CSS de
+                forma escalável e mantível.
+              </p>
+              <p>
+                A metodologia BEM divide a interface do usuário em blocos
+                independentes, tornando o desenvolvimento mais eficiente e o
+                código mais previsível, especialmente em projetos grandes com
+                múltiplos desenvolvedores.
+              </p>
+
+              <div class="bem-highlight">
+                <h3 class="bem-highlight__title">Princípios Fundamentais</h3>
+                <ul class="bem-highlight__list">
+                  <li>
+                    <strong>Componentização:</strong> Divide a interface em
+                    blocos reutilizáveis
+                  </li>
+                  <li>
+                    <strong>Nomenclatura Clara:</strong> Nomes de classes
+                    descritivos e consistentes
+                  </li>
+                  <li>
+                    <strong>Independência:</strong> Blocos funcionam
+                    independentemente do contexto
+                  </li>
+                  <li>
+                    <strong>Reutilização:</strong> Componentes podem ser
+                    utilizados em diferentes partes do projeto
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 2: Sintaxe -->
+          <section id="syntax" class="bem-section">
+            <h2 class="bem-section__title">Sintaxe e Estrutura</h2>
+            <div class="bem-text-content">
+              <p>
+                A metodologia BEM utiliza uma convenção específica para nomear
+                classes CSS:
+              </p>
+
+              <div class="bem-code-block">
+                <code class="bem-code">
+                  .bloco { }<br />
+                  .bloco__elemento { }<br />
+                  .bloco--modificador { }<br />
+                  .bloco__elemento--modificador { }
+                </code>
+              </div>
+
+              <div class="bem-syntax-table">
+                <div class="bem-syntax-row">
+                  <div class="bem-syntax-symbol">.</div>
+                  <div class="bem-syntax-name">bloco</div>
+                  <div class="bem-syntax-description">
+                    Componente raiz independente
+                  </div>
+                </div>
+                <div class="bem-syntax-row">
+                  <div class="bem-syntax-symbol">__</div>
+                  <div class="bem-syntax-name">elemento</div>
+                  <div class="bem-syntax-description">
+                    Parte do bloco sem significado fora dele
+                  </div>
+                </div>
+                <div class="bem-syntax-row">
+                  <div class="bem-syntax-symbol">--</div>
+                  <div class="bem-syntax-name">modificador</div>
+                  <div class="bem-syntax-description">
+                    Variação do bloco ou elemento
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 3: Blocos -->
+          <section id="blocks" class="bem-section">
+            <h2 class="bem-section__title">Blocos (Blocks)</h2>
+            <div class="bem-text-content">
+              <p>
+                Um <strong>bloco</strong> é um componente funcionalmente
+                independente que pode ser reutilizado. Blocos podem conter
+                outros blocos e elementos.
+              </p>
+
+              <h3>Características dos Blocos:</h3>
+              <ul>
+                <li>Funcionam independentemente do contexto</li>
+                <li>Não devem influenciar o ambiente (sem margin externo)</li>
+                <li>Podem ser aninhados e reutilizados</li>
+                <li>Nome describe o propósito, não a aparência</li>
+              </ul>
+
+              <div class="bem-code-example">
+                <h4>Exemplo HTML:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    &lt;div class="menu"&gt;<br />
+                    &nbsp;&nbsp;&lt;ul class="menu__list"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;li class="menu__item"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;a
+                    class="menu__link"&gt;Home&lt;/a&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/li&gt;<br />
+                    &nbsp;&nbsp;&lt;/ul&gt;<br />
+                    &lt;/div&gt;
+                  </code>
+                </div>
+
+                <h4>Exemplo CSS:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    .menu {<br />
+                    &nbsp;&nbsp;display: flex;<br />
+                    &nbsp;&nbsp;padding: 20px;<br />
+                    }<br /><br />
+
+                    .menu__list {<br />
+                    &nbsp;&nbsp;list-style: none;<br />
+                    &nbsp;&nbsp;display: flex;<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 4: Elementos -->
+          <section id="elements" class="bem-section">
+            <h2 class="bem-section__title">Elementos (Elements)</h2>
+            <div class="bem-text-content">
+              <p>
+                Um <strong>elemento</strong> é uma parte constituinte de um
+                bloco que não faz sentido fora do contexto do bloco pai.
+              </p>
+
+              <h3>Características dos Elementos:</h3>
+              <ul>
+                <li>Dependem sempre do bloco pai</li>
+                <li>Não podem existir independentemente</li>
+                <li>Separados do bloco por duplo underscore (__)</li>
+                <li>
+                  Podem estar aninhados, mas sempre referenciam o bloco raiz
+                </li>
+              </ul>
+
+              <div class="bem-code-example">
+                <h4>Estrutura de Card:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    &lt;article class="card"&gt;<br />
+                    &nbsp;&nbsp;&lt;img class="card__image" src="..."
+                    alt="..."&gt;<br />
+                    &nbsp;&nbsp;&lt;div class="card__content"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h3
+                    class="card__title"&gt;Título&lt;/h3&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;p
+                    class="card__text"&gt;Descrição...&lt;/p&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;a class="card__link"&gt;Leia
+                    mais&lt;/a&gt;<br />
+                    &nbsp;&nbsp;&lt;/div&gt;<br />
+                    &lt;/article&gt;
+                  </code>
+                </div>
+
+                <h4>CSS dos Elementos:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    .card__image {<br />
+                    &nbsp;&nbsp;width: 100%;<br />
+                    &nbsp;&nbsp;height: 200px;<br />
+                    &nbsp;&nbsp;object-fit: cover;<br />
+                    }<br /><br />
+
+                    .card__title {<br />
+                    &nbsp;&nbsp;font-size: 1.5rem;<br />
+                    &nbsp;&nbsp;font-weight: bold;<br />
+                    &nbsp;&nbsp;margin-bottom: 0.5rem;<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 5: Modificadores -->
+          <section id="modifiers" class="bem-section">
+            <h2 class="bem-section__title">Modificadores (Modifiers)</h2>
+            <div class="bem-text-content">
+              <p>
+                Um <strong>modificador</strong> define a aparência, estado ou
+                comportamento de um bloco ou elemento. É usado para criar
+                variações.
+              </p>
+
+              <h3>Tipos de Modificadores:</h3>
+              <ul>
+                <li>
+                  <strong>Boolean:</strong> indica presença/ausência
+                  (.button--disabled)
+                </li>
+                <li>
+                  <strong>Key-Value:</strong> indica variação específica
+                  (.button--size-large)
+                </li>
+              </ul>
+
+              <div class="bem-code-example">
+                <h4>Botões com Modificadores:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    &lt;!-- Botão padrão --&gt;<br />
+                    &lt;button class="button"&gt;Clique aqui&lt;/button&gt;<br /><br />
+
+                    &lt;!-- Botão primário --&gt;<br />
+                    &lt;button class="button button--primary"&gt;Ação
+                    Principal&lt;/button&gt;<br /><br />
+
+                    &lt;!-- Botão grande --&gt;<br />
+                    &lt;button class="button button--size-large"&gt;Botão
+                    Grande&lt;/button&gt;<br /><br />
+
+                    &lt;!-- Botão desabilitado --&gt;<br />
+                    &lt;button class="button
+                    button--disabled"&gt;Desabilitado&lt;/button&gt;
+                  </code>
+                </div>
+
+                <h4>CSS dos Modificadores:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    .button {<br />
+                    &nbsp;&nbsp;padding: 10px 20px;<br />
+                    &nbsp;&nbsp;border: none;<br />
+                    &nbsp;&nbsp;border-radius: 4px;<br />
+                    &nbsp;&nbsp;cursor: pointer;<br />
+                    }<br /><br />
+
+                    .button--primary {<br />
+                    &nbsp;&nbsp;background-color: #007bff;<br />
+                    &nbsp;&nbsp;color: white;<br />
+                    }<br /><br />
+
+                    .button--size-large {<br />
+                    &nbsp;&nbsp;padding: 15px 30px;<br />
+                    &nbsp;&nbsp;font-size: 1.2rem;<br />
+                    }<br /><br />
+
+                    .button--disabled {<br />
+                    &nbsp;&nbsp;opacity: 0.6;<br />
+                    &nbsp;&nbsp;cursor: not-allowed;<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 6: Exemplos Práticos -->
+          <section id="examples" class="bem-section">
+            <h2 class="bem-section__title">Exemplos Práticos</h2>
+            <div class="bem-text-content">
+              <div class="bem-example">
+                <h3>Exemplo 1: Formulário de Login</h3>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    &lt;form class="login-form"&gt;<br />
+                    &nbsp;&nbsp;&lt;div class="login-form__header"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;h2
+                    class="login-form__title"&gt;Entrar&lt;/h2&gt;<br />
+                    &nbsp;&nbsp;&lt;/div&gt;<br /><br />
+
+                    &nbsp;&nbsp;&lt;div class="login-form__field"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input class="login-form__input"
+                    type="email"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label
+                    class="login-form__label"&gt;E-mail&lt;/label&gt;<br />
+                    &nbsp;&nbsp;&lt;/div&gt;<br /><br />
+
+                    &nbsp;&nbsp;&lt;div class="login-form__field
+                    login-form__field--error"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;input class="login-form__input
+                    login-form__input--invalid" type="password"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;label
+                    class="login-form__label"&gt;Senha&lt;/label&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;span
+                    class="login-form__error"&gt;Senha incorreta&lt;/span&gt;<br />
+                    &nbsp;&nbsp;&lt;/div&gt;<br /><br />
+
+                    &nbsp;&nbsp;&lt;button class="login-form__submit
+                    login-form__submit--primary"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;Entrar<br />
+                    &nbsp;&nbsp;&lt;/button&gt;<br />
+                    &lt;/form&gt;
+                  </code>
+                </div>
+              </div>
+
+              <div class="bem-example">
+                <h3>Exemplo 2: Lista de Produtos</h3>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    &lt;section class="product-list"&gt;<br />
+                    &nbsp;&nbsp;&lt;h2 class="product-list__title"&gt;Produtos
+                    em Destaque&lt;/h2&gt;<br /><br />
+
+                    &nbsp;&nbsp;&lt;div class="product-list__grid"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;article class="product-card
+                    product-card--featured"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;img
+                    class="product-card__image" src="..." alt="..."&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;div
+                    class="product-card__content"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;h3
+                    class="product-card__title"&gt;Nome do Produto&lt;/h3&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;p
+                    class="product-card__price product-card__price--sale"&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;R$
+                    99,90<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/p&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;button
+                    class="product-card__button"&gt;Comprar&lt;/button&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/div&gt;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/article&gt;<br />
+                    &nbsp;&nbsp;&lt;/div&gt;<br />
+                    &lt;/section&gt;
+                  </code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 7: Vantagens -->
+          <section id="advantages" class="bem-section">
+            <h2 class="bem-section__title">Vantagens da Metodologia BEM</h2>
+            <div class="bem-text-content">
+              <div class="bem-advantages">
+                <div class="bem-advantage">
+                  <h3 class="bem-advantage__title">
+                    🎯 Clareza e Legibilidade
+                  </h3>
+                  <p class="bem-advantage__text">
+                    Nomes de classes descritivos tornam o código
+                    autoexplicativo, facilitando a compreensão por outros
+                    desenvolvedores.
+                  </p>
+                </div>
+
+                <div class="bem-advantage">
+                  <h3 class="bem-advantage__title">🔄 Reutilização</h3>
+                  <p class="bem-advantage__text">
+                    Blocos independentes podem ser facilmente reutilizados em
+                    diferentes contextos sem conflitos de estilo.
+                  </p>
+                </div>
+
+                <div class="bem-advantage">
+                  <h3 class="bem-advantage__title">📈 Escalabilidade</h3>
+                  <p class="bem-advantage__text">
+                    A estrutura modular facilita a manutenção e expansão de
+                    projetos grandes com múltiplas equipes.
+                  </p>
+                </div>
+
+                <div class="bem-advantage">
+                  <h3 class="bem-advantage__title">🛡️ Evita Conflitos</h3>
+                  <p class="bem-advantage__text">
+                    A nomenclatura específica previne conflitos de CSS e efeitos
+                    colaterais indesejados.
+                  </p>
+                </div>
+
+                <div class="bem-advantage">
+                  <h3 class="bem-advantage__title">🔧 Manutenibilidade</h3>
+                  <p class="bem-advantage__text">
+                    Mudanças em um bloco não afetam outros componentes,
+                    facilitando refatorações seguras.
+                  </p>
+                </div>
+
+                <div class="bem-advantage">
+                  <h3 class="bem-advantage__title">👥 Trabalho em Equipe</h3>
+                  <p class="bem-advantage__text">
+                    Convenção padronizada facilita a colaboração entre
+                    desenvolvedores em projetos complexos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 8: Melhores Práticas -->
+          <section id="best-practices" class="bem-section">
+            <h2 class="bem-section__title">Melhores Práticas 2024</h2>
+            <div class="bem-text-content">
+              <div class="bem-practice">
+                <h3>✅ Faça:</h3>
+                <ul>
+                  <li>
+                    Use nomes descritivos baseados no propósito, não na
+                    aparência
+                  </li>
+                  <li>
+                    Mantenha a hierarquia plana (evite
+                    .block__element__sub-element)
+                  </li>
+                  <li>
+                    Use modificadores para variações, não classes separadas
+                  </li>
+                  <li>Documente a estrutura dos seus blocos principais</li>
+                  <li>
+                    Combine BEM com pré-processadores (Sass/Less) para melhor
+                    organização
+                  </li>
+                  <li>Use ferramentas de linting para manter consistência</li>
+                </ul>
+              </div>
+
+              <div class="bem-practice">
+                <h3>❌ Evite:</h3>
+                <ul>
+                  <li>Nomes baseados em aparência (.red-button)</li>
+                  <li>Aninhamento excessivo de elementos</li>
+                  <li>Usar tags HTML como base para nomes de classes</li>
+                  <li>Misturar BEM com outras convenções no mesmo projeto</li>
+                  <li>
+                    Classes modificadoras independentes (sem a classe base)
+                  </li>
+                  <li>Abreviações excessivas que prejudiquem a clareza</li>
+                </ul>
+              </div>
+
+              <div class="bem-code-example">
+                <h4>Exemplo de Organização Sass/SCSS:</h4>
+                <div class="bem-code-block">
+                  <code class="bem-code">
+                    .menu {<br />
+                    &nbsp;&nbsp;display: flex;<br />
+                    &nbsp;&nbsp;padding: 1rem;<br /><br />
+
+                    &nbsp;&nbsp;&__list {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;display: flex;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;list-style: none;<br />
+                    &nbsp;&nbsp;}<br /><br />
+
+                    &nbsp;&nbsp;&__item {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;margin-right: 1rem;<br /><br />
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&--active {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-weight: bold;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                    &nbsp;&nbsp;}<br /><br />
+
+                    &nbsp;&nbsp;&__link {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;color: inherit;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;text-decoration: none;<br /><br />
+
+                    &nbsp;&nbsp;&nbsp;&nbsp;&:hover {<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-decoration:
+                    underline;<br />
+                    &nbsp;&nbsp;&nbsp;&nbsp;}<br />
+                    &nbsp;&nbsp;}<br />
+                    }
+                  </code>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Seção 9: Ferramentas -->
+          <section id="tools" class="bem-section">
+            <h2 class="bem-section__title">Ferramentas e Recursos</h2>
+            <div class="bem-text-content">
+              <div class="bem-tools">
+                <div class="bem-tool">
+                  <h3 class="bem-tool__title">Linters e Validadores</h3>
+                  <ul class="bem-tool__list">
+                    <li>
+                      <strong>stylelint-bem-namics:</strong> Plugin do stylelint
+                      para validar BEM
+                    </li>
+                    <li>
+                      <strong>bemhint:</strong> Ferramenta de linha de comando
+                      para verificar BEM
+                    </li>
+                    <li>
+                      <strong>postcss-bem-linter:</strong> PostCSS plugin para
+                      lint de BEM
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bem-tool">
+                  <h3 class="bem-tool__title">Frameworks e Bibliotecas</h3>
+                  <ul class="bem-tool__list">
+                    <li>
+                      <strong>BEM React:</strong> Componentes React seguindo
+                      metodologia BEM
+                    </li>
+                    <li>
+                      <strong>bem-cn:</strong> Utilitário JavaScript para gerar
+                      nomes BEM
+                    </li>
+                    <li>
+                      <strong>bemto:</strong> Mixins Sass para automatizar
+                      nomenclatura BEM
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bem-tool">
+                  <h3 class="bem-tool__title">Extensões para Editores</h3>
+                  <ul class="bem-tool__list">
+                    <li>
+                      <strong>BEM Helper (VS Code):</strong> Autocompletar e
+                      snippets BEM
+                    </li>
+                    <li>
+                      <strong>CSS BEM Support:</strong> Realce de sintaxe e
+                      navegação
+                    </li>
+                    <li>
+                      <strong>Emmet BEM:</strong> Atalhos para gerar estruturas
+                      BEM rapidamente
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="bem-tool">
+                  <h3 class="bem-tool__title">Recursos de Aprendizado</h3>
+                  <ul class="bem-tool__list">
+                    <li>
+                      <strong>getbem.com:</strong> Site oficial com documentação
+                      completa
+                    </li>
+                    <li>
+                      <strong>BEM 101:</strong> Guias e tutoriais introdutórios
+                    </li>
+                    <li>
+                      <strong>CSS Guidelines:</strong> Melhores práticas para
+                      CSS com BEM
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="bem-migration">
+                <h3>Migração para BEM</h3>
+                <p>
+                  Ao migrar um projeto existente para BEM, considere uma
+                  abordagem gradual:
+                </p>
+                <ol>
+                  <li>Identifique os componentes principais da interface</li>
+                  <li>Refatore um componente por vez</li>
+                  <li>Documente a nova estrutura para a equipe</li>
+                  <li>
+                    Use ferramentas de automação para detectar padrões antigos
+                  </li>
+                  <li>
+                    Estabeleça guidelines de código para novos desenvolvimentos
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="bem-footer">
+        <div class="bem-container">
+          <p class="bem-footer__text">
+            Este guia foi criado como parte do projeto Tech Hub.
+            <a href="index.html" class="bem-footer__link"
+              >Voltar ao Portfolio</a
+            >
+          </p>
+        </div>
+      </footer>
+    </main>
+
+    <script src="assets/js/bem-page.js"></script>
+  </body>
+</html>

@@ -23,13 +23,14 @@
             data-name="Header"
             data-node-id="2148:1654"
           >
+            <!-- Avatar structure following BEM methodology -->
             <!-- <div
               class="intro__avatar"
               data-name="Avatar"
               data-node-id="2148:1655"
             >
               <div
-                class="intro__avatar-user"
+                class="intro__avatar-container"
                 data-name="User"
                 data-node-id="2148:1656"
               >
@@ -46,13 +47,20 @@
                   <img
                     src="assets/images/profile-avatar-new.jpg"
                     alt="Robson Souza"
+                    class="intro__avatar-img"
                   />
                 </div>
               </div>
             </div> -->
-            <div class="intro__text" data-name="Text" data-node-id="2148:1661">
+
+            <!-- Text content following BEM methodology -->
+            <div
+              class="intro__text-content"
+              data-name="Text"
+              data-node-id="2148:1661"
+            >
               <div
-                class="intro__title"
+                class="intro__title-section"
                 data-name="Title"
                 data-node-id="2148:1662"
               >
@@ -71,13 +79,25 @@
               </p>
             </div>
           </header>
-          <div class="intro__tags" data-name="Tags" data-node-id="2148:1666">
-            <span class="tag tag--css" data-node-id="4101:915">CSS</span>
-            <span class="tag tag--html" data-node-id="4101:916">HTML</span>
-            <span class="tag tag--javascript" data-node-id="4101:913"
+          <div
+            class="intro__tags-container"
+            data-name="Tags"
+            data-node-id="2148:1666"
+          >
+            <span class="intro__tag intro__tag--css" data-node-id="4101:915"
+              >CSS</span
+            >
+            <span class="intro__tag intro__tag--html" data-node-id="4101:916"
+              >HTML</span
+            >
+            <span
+              class="intro__tag intro__tag--javascript"
+              data-node-id="4101:913"
               >Javascript</span
             >
-            <span class="tag tag--github" data-node-id="4101:905">GitHub</span>
+            <span class="intro__tag intro__tag--github" data-node-id="4101:905"
+              >GitHub</span
+            >
           </div>
         </div>
       </section>
@@ -146,9 +166,15 @@
                   data-name="Tags"
                   data-node-id="I2149:2090;4101:1071"
                 >
-                  <span class="tag tag--small tag--css">CSS</span>
-                  <span class="tag tag--small tag--html">HTML</span>
-                  <span class="tag tag--small tag--javascript">Javascript</span>
+                  <span class="project-card__tag project-card__tag--css"
+                    >CSS</span
+                  >
+                  <span class="project-card__tag project-card__tag--html"
+                    >HTML</span
+                  >
+                  <span class="project-card__tag project-card__tag--javascript"
+                    >Javascript</span
+                  >
                 </div>
               </div>
             </article></a
@@ -198,9 +224,15 @@
                 data-name="Tags"
                 data-node-id="I2149:2100;4101:1071"
               >
-                <span class="tag tag--small tag--css">CSS</span>
-                <span class="tag tag--small tag--html">HTML</span>
-                <span class="tag tag--small tag--javascript">Javascript</span>
+                <span class="project-card__tag project-card__tag--css"
+                  >CSS</span
+                >
+                <span class="project-card__tag project-card__tag--html"
+                  >HTML</span
+                >
+                <span class="project-card__tag project-card__tag--javascript"
+                  >Javascript</span
+                >
               </div>
             </div>
           </article>
@@ -246,9 +278,15 @@
                 data-name="Tags"
                 data-node-id="I2149:2095;4101:1071"
               >
-                <span class="tag tag--small tag--css">CSS</span>
-                <span class="tag tag--small tag--html">HTML</span>
-                <span class="tag tag--small tag--javascript">Javascript</span>
+                <span class="project-card__tag project-card__tag--css"
+                  >CSS</span
+                >
+                <span class="project-card__tag project-card__tag--html"
+                  >HTML</span
+                >
+                <span class="project-card__tag project-card__tag--javascript"
+                  >Javascript</span
+                >
               </div>
             </div>
           </article>
@@ -294,9 +332,15 @@
                 data-name="Tags"
                 data-node-id="I2149:2110;4101:1071"
               >
-                <span class="tag tag--small tag--css">CSS</span>
-                <span class="tag tag--small tag--html">HTML</span>
-                <span class="tag tag--small tag--javascript">Javascript</span>
+                <span class="project-card__tag project-card__tag--css"
+                  >CSS</span
+                >
+                <span class="project-card__tag project-card__tag--html"
+                  >HTML</span
+                >
+                <span class="project-card__tag project-card__tag--javascript"
+                  >Javascript</span
+                >
               </div>
             </div>
           </article>
@@ -346,9 +390,15 @@
                 data-name="Tags"
                 data-node-id="I2149:2115;4101:1071"
               >
-                <span class="tag tag--small tag--css">CSS</span>
-                <span class="tag tag--small tag--html">HTML</span>
-                <span class="tag tag--small tag--javascript">Javascript</span>
+                <span class="project-card__tag project-card__tag--css"
+                  >CSS</span
+                >
+                <span class="project-card__tag project-card__tag--html"
+                  >HTML</span
+                >
+                <span class="project-card__tag project-card__tag--javascript"
+                  >Javascript</span
+                >
               </div>
             </div>
           </article>
@@ -394,12 +444,57 @@
                 data-name="Tags"
                 data-node-id="I2149:2105;4101:1071"
               >
-                <span class="tag tag--small tag--css">CSS</span>
-                <span class="tag tag--small tag--html">HTML</span>
-                <span class="tag tag--small tag--javascript">Javascript</span>
+                <span class="project-card__tag project-card__tag--css"
+                  >CSS</span
+                >
+                <span class="project-card__tag project-card__tag--html"
+                  >HTML</span
+                >
+                <span class="project-card__tag project-card__tag--javascript"
+                  >Javascript</span
+                >
               </div>
             </div>
           </article>
+
+          <!-- BEM Methodology Guide -->
+          <a
+            href="bem-methodology.html"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><article
+              class="project-card project-card--special"
+              data-name="ProjectCard"
+              data-node-id="bem:guide"
+            >
+              <div class="project-card__image" data-name="image">
+                <div class="project-card__bem-icon">
+                  <span class="project-card__bem-text">BEM</span>
+                  <span class="project-card__bem-subtitle">CSS</span>
+                </div>
+              </div>
+              <div class="project-card__content" data-name="Text">
+                <div class="project-card__description" data-name="Description">
+                  <h4 class="project-card__title">Metodologia BEM CSS</h4>
+                  <p class="project-card__text">
+                    Guia completo sobre a metodologia BEM (Block Element
+                    Modifier) com exemplos práticos e melhores práticas
+                  </p>
+                </div>
+                <div class="project-card__tags" data-name="Tags">
+                  <span class="project-card__tag project-card__tag--css"
+                    >CSS</span
+                  >
+                  <span class="project-card__tag project-card__tag--html"
+                    >HTML</span
+                  >
+                  <span class="project-card__tag project-card__tag--purple"
+                    >BEM</span
+                  >
+                </div>
+              </div>
+            </article></a
+          >
         </div>
       </section>
 
