@@ -7,12 +7,17 @@
 
 /* CSS Variables - Design System Colors */
 :root {
-  /* Base Colors */
+  /* Base Colors - From Style Guide */
+  --color-black   : #000000;
+  --color-white   : #FFFFFF;
   --color-gray-100: #E2E4E9;
   --color-gray-200: #C0C4CE;
   --color-gray-300: #878EA1;
   --color-gray-400: #292C34;
   --color-gray-500: #16181D;
+  --color-gray-600: #0D0E11;
+  --color-gray-900: #C4C4CC;
+  --color-gray-950: #E1E1E6;
 
   /* Main Colors */
   --color-red   : #E3646E;
@@ -21,7 +26,7 @@
   --color-yellow: #EABD5F;
   --color-green : #82BC4F;
 
-  /* Typography */
+  /* Typography - From Style Guide */
   --font-inconsolata: 'Inconsolata', monospace;
   --font-asap       : 'Asap', sans-serif;
   --font-maven      : 'Maven Pro', sans-serif;
@@ -34,9 +39,11 @@
   --text-2xl : 56px;
   --tag-sm   : 12px;
 
-  /* Line Heights */
+  /* Line Heights - From Style Guide */
   --line-height-tight : 1.2;
+  /* 120% from Asap and Inconsolata specs */
   --line-height-normal: 1.4;
+  /* 140% from Maven Pro specs */
 }
 
 /* Base Styles */
@@ -194,19 +201,26 @@ body {
   display        : flex;
   align-items    : center;
   justify-content: center;
-  padding        : 4px 12px;
-  border-radius  : 999px;
+  padding        : 6px 16px;
+  border-radius  : 20px;
   font-family    : var(--font-inconsolata);
   font-weight    : 700;
   font-size      : var(--text-base);
   color          : var(--color-gray-500);
   line-height    : var(--line-height-tight);
   text-align     : center;
-  border         : 1px solid black;
+  border         : none;
+  cursor         : pointer;
+  transition     : transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tag:hover {
+  transform : translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .tag--small {
-  padding  : 2px 8px;
+  padding  : 4px 12px;
   font-size: var(--tag-sm);
 }
 
@@ -234,7 +248,7 @@ body {
 .projects {
   width         : 100%;
   height        : 921px;
-  padding       : 72px 0 152px;
+  padding       : 0 0 152px;
   margin        : 0 auto;
   width         : max(1040px, 30%);
   display       : flex;
@@ -277,8 +291,8 @@ body {
 /* Project Card */
 .project-card {
   background-color: var(--color-gray-400);
-  border-radius   : 12px;
-  padding         : 12px;
+  border-radius   : 20px;
+  padding         : 16px;
   width           : 508px;
   height          : 180px;
   display         : flex;
@@ -286,12 +300,35 @@ body {
   align-items     : flex-start;
   justify-content : center;
   overflow        : hidden;
+  cursor          : pointer;
+  transition      : transform 0.3s ease, box-shadow 0.3s ease;
+  border          : 2px solid transparent;
+  text-decoration : none;
+  color           : inherit;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+  color          : inherit;
+}
+
+/* Support for linked project cards */
+a .project-card {
+  text-decoration: none;
+  color          : inherit;
+}
+
+a:hover .project-card,
+.project-card:hover {
+  transform : translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
 .project-card__image {
   width        : 224px;
-  height       : 156px;
-  border-radius: 8px;
+  height       : 148px;
+  border-radius: 12px;
   overflow     : hidden;
   flex-shrink  : 0;
   position     : relative;
@@ -316,7 +353,7 @@ body {
   min-height     : 1px;
   min-width      : 1px;
   padding        : 8px 4px;
-  height         : 156px;
+  height         : 148px;
 }
 
 .project-card__description {
@@ -347,6 +384,15 @@ body {
   -webkit-line-clamp: 4;
   line-clamp        : 4;
   -webkit-box-orient: vertical;
+}
+
+/* Ensure text colors are preserved in linked cards */
+a .project-card__title {
+  color: var(--color-gray-100);
+}
+
+a .project-card__text {
+  color: var(--color-gray-200);
 }
 
 .project-card__tags {
@@ -547,16 +593,19 @@ body {
   padding         : 20px;
   width           : 400px;
   background-color: var(--color-gray-400);
-  border-radius   : 8px;
+  border-radius   : 16px;
   text-decoration : none;
   color           : inherit;
-  transition      : transform 0.2s ease, background-color 0.2s ease;
+  transition      : transform 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
   box-sizing      : border-box;
+  cursor          : pointer;
+  border          : 2px solid transparent;
 }
 
 .social-button:hover {
-  transform       : translateY(-2px);
-  background-color: #3a3d45;
+  transform : translateY(-2px);
+  border    : 2px solid var(--color-blue);
+  box-shadow: 0 6px 20px rgba(57, 150, 219, 0.2);
 }
 
 .social-button__icon {
